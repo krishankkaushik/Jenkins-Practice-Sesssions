@@ -24,29 +24,6 @@ pipeline {
       steps {
         sh 'mysql -V'
       }
-  }
-   stage('Build and Run') {
-      steps {
-        script {
-                    // Define the Java source code
-                    def javaCode = '''
-                        public class HelloWorld {
-                            public static void main(String[] args) {
-                                System.out.println("Hello, World!");
-                            }
-                        }
-                    '''
-
-                    // Write the Java code to a file
-                    writeFile file: 'HelloWorld.java', text: javaCode
-
-                    // Compile the Java code
-                    bat 'javac HelloWorld.java'
-
-                    // Run the Java program
-                    bat 'java HelloWorld'
-                }
-            }
-        }
     }
+  }
 }
